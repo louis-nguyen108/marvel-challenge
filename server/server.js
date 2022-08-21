@@ -3,7 +3,11 @@ const path = require('path')
 
 const server = express()
 
+const charactersRoutes = require('./routes/characters')
+
 server.use(express.json())
 server.use(express.static(path.join(__dirname, 'public')))
+
+server.use('/api/v1/characters', charactersRoutes)
 
 module.exports = server
