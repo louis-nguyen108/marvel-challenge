@@ -4,11 +4,13 @@
   "description": "Marvel Characters",
   "main": "server/index.js",
   "scripts": {
+    "start": "node server",
     "dev": "run-p client server",
-    "client": "webpack --watch",
+    "client": "npm run webpack -- --watch",
     "server": "nodemon --watch server server/index.js",
     "webpack": "webpack --config ./client/webpack.config.js",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "lint": "eslint --ext .js,.jsx ."
   },
   "repository": {
     "type": "git",
@@ -28,22 +30,40 @@
     "semi": false,
     "singleQuote": true
   },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
   "dependencies": {
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react-table": "^7.8.0",
     "superagent": "^8.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "@babel/preset-react": "^7.18.6",
     "babel-loader": "^8.2.5",
     "eslint": "^8.22.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.30.1",
     "jest": "^28.1.3",
     "nodemon": "^2.0.19",
     "npm-run-all": "^4.1.5",
+    "prettier": "^2.7.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
-    "webpack": "^5.74.0"
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
   }
 }
